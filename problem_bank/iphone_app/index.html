@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173f3a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="獣医腫瘍 問題集">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>獣医腫瘍 認定医問題集</title>
+</head>
+<body>
+  <main id="app" class="app" aria-live="polite">
+    <section class="loading"><div class="spinner"></div><p>問題集を準備しています…</p></section>
+  </main>
+  <nav class="tabbar" aria-label="主なメニュー">
+    <button data-route="home" class="active"><span>⌂</span>学習</button>
+    <button data-route="practice"><span>◎</span>問題を選ぶ</button>
+    <button data-route="review"><span>↻</span>復習</button>
+    <button data-route="stats"><span>▦</span>記録</button>
+  </nav>
+  <script src="app.js"></script>
+</body>
+</html>
