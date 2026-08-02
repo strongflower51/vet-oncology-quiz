@@ -67,15 +67,18 @@
   }
 
   function buildMock(n) {
-    const plan = {basic:Math.round(n*.4), standard:Math.round(n*.4), hard:n-Math.round(n*.4)-Math.round(n*.2)};
+    const basic = Math.round(n*.4);
+    const standard = Math.round(n*.4);
+    const plan = {basic, standard, hard:n-basic-standard};
     const picked = [];
     Object.entries(plan).forEach(([level,count]) => picked.push(...shuffled(unique(questions.filter(q => q.difficulty===level && q.status==='verified'))).slice(0,count)));
     return shuffled(unique(picked)).slice(0,n);
   }
 
   function start(ids, title) {
-    if (!ids.length) return;
-    session = {ids, index:0, title, answered:false, selected:[], score:0};
+    const questionIds = ids.map(item => typeof item === 'string' ? item : item.id).filter(id => byId(id));
+    if (!questionIds.length) return;
+    session = {ids:questionIds, index:0, title, answered:false, selected:[], score:0};
     renderQuestion();
   }
   function renderQuestion() {
